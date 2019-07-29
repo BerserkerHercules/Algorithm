@@ -18,11 +18,11 @@ public class LeetCodeSimple {
      * 所以返回 [0, 1]
      *
      * https://leetcode-cn.com/problems/two-sum
-     */
-    /**
+     *
      * 我的结果：
      * 执行用时：38 ms
-     * 已经战胜 52.93 % 的 java 提交记录
+     * 已经战胜 52.93 % 的 java 提交记录.
+     *
      */
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
@@ -56,11 +56,11 @@ public class LeetCodeSimple {
      * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2^31,  2^31 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
      *
      * 链接：https://leetcode-cn.com/problems/reverse-integer
-     */
-    /**
+     *
      * 我的结果：
      * 执行用时：3 ms
-     * 已经战胜 97.74 % 的 java 提交记录
+     * 已经战胜 97.74 % 的 java 提交记录.
+     *
      */
     public int reverse(int x) {
         long res=0;
