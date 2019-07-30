@@ -287,7 +287,11 @@ public class LeetCodeSimple {
         maps.put("(",")");
         maps.put("[","]");
         for(int i=0;i<str.length;i++){
+            StringBuilder sb = new StringBuilder();
+            sb.append(str[i]);
+            if(maps.get(str[i])==null){
 
+            }
         }
         return true;
     }
