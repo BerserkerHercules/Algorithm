@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * LeetCode 简单题
@@ -178,20 +180,37 @@ public class LeetCodeSimple {
      *
      * 链接：https://leetcode-cn.com/problems/roman-to-integer
      *
+     * 我的结果(2019-07-29)：
+     * 执行用时：27 ms
+     * 已经战胜 56.62 % 的 java 提交记录
      */
     public int romanToInt(String s) {
-
-        return 0;
+        String[] strArr = s.split("");
+        int result=0;
+        Map<String,Integer> maps = new HashMap<>();
+        maps.put("I",1);
+        maps.put("V",5);
+        maps.put("X",10);
+        maps.put("L",50);
+        maps.put("C",100);
+        maps.put("D",500);
+        maps.put("M",1000);
+        for(int i=0;i<strArr.length;i++){
+            int a = maps.get(strArr[i]);
+            int b = i<strArr.length-1?maps.get(strArr[i+1]):0;
+            result+=a>=b?a:-a;
+        }
+        return result;
     }
 
 
     public static void main(String[] args){
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
         long startTime=System.currentTimeMillis();
-        System.out.println(leetCodeSimple.isPalindrome(1234321));
+        System.out.println(leetCodeSimple.romanToInt("III"));
+        System.out.println(leetCodeSimple.romanToInt("MCMXCIV"));
         long endTime=System.currentTimeMillis();
         System.out.println(endTime-startTime);
-        System.exit(0);
     }
 
 }
