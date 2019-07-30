@@ -246,12 +246,57 @@ public class LeetCodeSimple {
         return res.toString();
     }
 
+    /**
+     * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+     *
+     * 有效字符串需满足：
+     *
+     * 左括号必须用相同类型的右括号闭合。
+     * 左括号必须以正确的顺序闭合。
+     * 注意空字符串可被认为是有效字符串。
+     *
+     * 示例 1:
+     *
+     * 输入: "()"
+     * 输出: true
+     * 示例 2:
+     *
+     * 输入: "()[]{}"
+     * 输出: true
+     * 示例 3:
+     *
+     * 输入: "(]"
+     * 输出: false
+     * 示例 4:
+     *
+     * 输入: "([)]"
+     * 输出: false
+     * 示例 5:
+     *
+     * 输入: "{[]}"
+     * 输出: true
+     *
+     *
+     * 链接：https://leetcode-cn.com/problems/valid-parentheses
+     *
+     */
+    public boolean isValid(String s) {
+        String[] str = s.split("");
+        Map<String,String> maps = new HashMap<>(3);
+        maps.put("{","}");
+        maps.put("(",")");
+        maps.put("[","]");
+        for(int i=0;i<str.length;i++){
+
+        }
+        return true;
+    }
+
 
     public static void main(String[] args){
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
-        String[] strs = {};
         long startTime=System.currentTimeMillis();
-        System.out.println(leetCodeSimple.longestCommonPrefix(strs));
+        System.out.println(leetCodeSimple.isValid( "{[]}"));
         long endTime=System.currentTimeMillis();
         System.out.println(endTime-startTime);
     }
