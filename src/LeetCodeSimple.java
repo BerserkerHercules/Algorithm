@@ -203,12 +203,55 @@ public class LeetCodeSimple {
         return result;
     }
 
+    /**
+     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     *
+     * 如果不存在公共前缀，返回空字符串 ""。
+     *
+     * 示例 1:
+     *
+     * 输入: ["flower","flow","flight"]
+     * 输出: "fl"
+     * 示例 2:
+     *
+     * 输入: ["dog","racecar","car"]
+     * 输出: ""
+     * 解释: 输入不存在公共前缀。
+     * 说明:
+     *
+     * 所有输入只包含小写字母 a-z 。
+     *
+     *
+     * 链接：https://leetcode-cn.com/problems/longest-common-prefix
+     *
+     */
+    public String longestCommonPrefix(String[] strs) {
+        StringBuilder res = new StringBuilder();
+        if(strs.length<=0){
+            return "";
+        }
+        for(int i=0;i<strs[0].length();i++){
+            for(int j=1;j<strs.length;){
+                if(i>=strs[j].length()){
+                    return res.toString();
+                }
+                if(strs[0].charAt(i)==strs[j].charAt(i)){
+                    j++;
+                }else{
+                    return res.toString();
+                }
+            }
+            res.append(strs[0].charAt(i));
+        }
+        return res.toString();
+    }
+
 
     public static void main(String[] args){
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
+        String[] strs = {};
         long startTime=System.currentTimeMillis();
-        System.out.println(leetCodeSimple.romanToInt("III"));
-        System.out.println(leetCodeSimple.romanToInt("MCMXCIV"));
+        System.out.println(leetCodeSimple.longestCommonPrefix(strs));
         long endTime=System.currentTimeMillis();
         System.out.println(endTime-startTime);
     }
