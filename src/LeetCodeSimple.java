@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Stack;
 
 /**
  * LeetCode 简单题
@@ -279,28 +277,54 @@ public class LeetCodeSimple {
      *
      * 链接：https://leetcode-cn.com/problems/valid-parentheses
      *
+     * 我的想法：
+     * 考虑使用堆栈
+     * 先进(遇到左括号，则放入其对应的右括号)
+     * 后出(碰到右括号，则往外取出，并对比取出顺序)
+     *
      */
     public boolean isValid(String s) {
+        if("".equals(s)){
+            return true;
+        }
+        if(s.length()%2==1){
+            return false;
+        }
         String[] str = s.split("");
         Map<String,String> maps = new HashMap<>(3);
         maps.put("{","}");
         maps.put("(",")");
         maps.put("[","]");
-        for(int i=0;i<str.length;i++){
-            StringBuilder sb = new StringBuilder();
-            sb.append(str[i]);
+        Stack stack = new Stack();
+        int i=0;
+        for(;i<str.length;i++){
             if(maps.get(str[i])==null){
-
+                if(i==0||!stack.pop().equals(str[i])){
+                    return false;
+                }
+            }else{
+                if(i==str.length-1){
+                    return false;
+                }
+                stack.push(maps.get(str[i]));
             }
         }
-        return true;
+        return i!=0;
     }
 
 
     public static void main(String[] args){
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
         long startTime=System.currentTimeMillis();
-        System.out.println(leetCodeSimple.isValid( "{[]}"));
+        System.out.println(leetCodeSimple.isValid( "(("));
+        System.out.println(leetCodeSimple.isValid( "))"));
+        System.out.println(leetCodeSimple.isValid( "[[))"));
+
+        System.out.println(leetCodeSimple.isValid( ""));
+        System.out.println(leetCodeSimple.isValid( "{()}"));
+        System.out.println(leetCodeSimple.isValid( "()[]{}"));
+        System.out.println(leetCodeSimple.isValid( "(([]){})"));
+
         long endTime=System.currentTimeMillis();
         System.out.println(endTime-startTime);
     }
