@@ -295,7 +295,7 @@ public class LeetCodeSimple {
         maps.put("{","}");
         maps.put("(",")");
         maps.put("[","]");
-        Stack stack = new Stack();
+        Stack<String> stack = new Stack<>();
         int i=0;
         for(;i<str.length;i++){
             if(maps.get(str[i])==null){
