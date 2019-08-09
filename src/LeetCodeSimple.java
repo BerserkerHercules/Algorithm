@@ -432,7 +432,9 @@ public class LeetCodeSimple {
         l21.next = l22;*/
         int[] nums = {0,0,1,1,1,2,2,3,3,4};
         long startTime = System.currentTimeMillis();
-        System.out.println("length:"+leetCodeSimple.removeDuplicates(nums));
+        for(int i=0;i<50;i++){
+            System.out.println("length:"+leetCodeSimple.removeDuplicates(nums));
+        }
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - startTime));
         System.exit(0);
