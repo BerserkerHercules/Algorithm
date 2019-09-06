@@ -418,23 +418,52 @@ public class LeetCodeSimple {
         return 1;
     }
 
+    /**
+     * 实现 strStr() 函数。
+     *
+     * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。
+     * 如果不存在，则返回  -1。
+     *
+     * 示例 1:
+     *
+     * 输入: haystack = "hello", needle = "ll"
+     * 输出: 2
+     * 示例 2:
+     *
+     * 输入: haystack = "aaaaa", needle = "bba"
+     * 输出: -1
+     *
+     * "mississippi"
+     * "issipi"
+     *
+     * 链接：https://leetcode-cn.com/problems/implement-strstr
+     *
+     */
+    public int strStr(String haystack, String needle) {
+
+        if(needle.isEmpty()||needle.length()>haystack.length()){
+            return -1;
+        }
+        char first = needle.charAt(0);
+        for(int i=0;i<haystack.length();i++){
+            if(first==haystack.charAt(i)){
+                if(needle.equals(haystack.substring(i,i+needle.length()))){
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
     public static void main(String[] args) {
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
-        /*ListNode l1 = new ListNode(1);
-        ListNode l11 = new ListNode(2);
-        ListNode l12 = new ListNode(4);
-        l1.next = l11;
-        l11.next = l12;
-        ListNode l2 = new ListNode(1);
-        ListNode l21 = new ListNode(3);
-        ListNode l22 = new ListNode(4);
-        l2.next = l21;
-        l21.next = l22;*/
-        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+
         long startTime = System.currentTimeMillis();
-        for(int i=0;i<50;i++){
-            System.out.println("length:"+leetCodeSimple.removeDuplicates(nums));
-        }
+        /*for(int i=0;i<50;i++){
+            System.out.println("length:"+leetCodeSimple.strStr("hello","abc"));
+        }*/
+        System.out.println("position:"+leetCodeSimple.strStr("mississippi","issipi"));
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - startTime));
         System.exit(0);
