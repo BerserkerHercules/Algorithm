@@ -331,15 +331,15 @@ public class LeetCodeSimple {
      * 示例 1:
      * 给定数组 nums = [1,1,2],
      * 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
-     *
+     * <p>
      * 你不需要考虑数组中超出新长度后面的元素。
-     *
+     * <p>
      * 示例 2:
      * 给定 nums = [0,0,1,1,1,2,2,3,3,4],
      * 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
-     *
+     * <p>
      * 你不需要考虑数组中超出新长度后面的元素。
-     *
+     * <p>
      * 说明:
      * 为什么返回数值是整数，但输出的答案是数组呢?
      * 请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
@@ -351,16 +351,16 @@ public class LeetCodeSimple {
      * for (int i = 0; i < len; i++) {
      *     print(nums[i]);
      * }
-     *
+     * <p>
      * 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
-     *
+     * <p>
      * 执行用时 : 2 ms, 在所有 Java 提交中击败了 92.94% 的用户
      */
     public int removeDuplicates(int[] nums) {
-        int k=1;
+        int k = 1;
         for (int i = 1; i < nums.length; i++) {
-            if(nums[i]!=nums[i-1]){
-                nums[k]=nums[i];
+            if (nums[i] != nums[i - 1]) {
+                nums[k] = nums[i];
                 k++;
             }
         }
@@ -369,50 +369,49 @@ public class LeetCodeSimple {
 
     /**
      * 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
-     *
+     * <p>
      * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
-     *
+     * <p>
      * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
-     *
+     * <p>
      * 示例 1:
-     *
+     * <p>
      * 给定 nums = [3,2,2,3], val = 3,
-     *
+     * <p>
      * 函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。
-     *
+     * <p>
      * 你不需要考虑数组中超出新长度后面的元素。
      * 示例 2:
-     *
+     * <p>
      * 给定 nums = [0,1,2,2,3,0,4,2], val = 2,
-     *
+     * <p>
      * 函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。
-     *
+     * <p>
      * 注意这五个元素可为任意顺序。
-     *
+     * <p>
      * 你不需要考虑数组中超出新长度后面的元素。
      * 说明:
-     *
+     * <p>
      * 为什么返回数值是整数，但输出的答案是数组呢?
-     *
+     * <p>
      * 请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
-     *
+     * <p>
      * 你可以想象内部操作如下:
-     *
+     * <p>
      * // nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝
      * int len = removeElement(nums, val);
-     *
+     * <p>
      * // 在函数里修改输入数组对于调用者是可见的。
      * // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
      * for (int i = 0; i < len; i++) {
      *     print(nums[i]);
      * }
-     *
+     * <p>
      * 链接：https://leetcode-cn.com/problems/remove-element
-     *
      */
     public int removeElement(int[] nums, int val) {
-        int k=0;
-        for(int i=0;i<nums.length;i++){
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
 
         }
         return 1;
@@ -420,34 +419,35 @@ public class LeetCodeSimple {
 
     /**
      * 实现 strStr() 函数。
-     *
+     * <p>
      * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。
      * 如果不存在，则返回  -1。
-     *
+     * <p>
      * 示例 1:
-     *
+     * <p>
      * 输入: haystack = "hello", needle = "ll"
      * 输出: 2
      * 示例 2:
-     *
+     * <p>
      * 输入: haystack = "aaaaa", needle = "bba"
      * 输出: -1
-     *
+     * <p>
      * "mississippi"
      * "issipi"
-     *
+     * <p>
      * 链接：https://leetcode-cn.com/problems/implement-strstr
-     *
      */
     public int strStr(String haystack, String needle) {
-
-        if(needle.isEmpty()||needle.length()>haystack.length()){
+        if (needle.isEmpty()) {
+            return 0;
+        }
+        if (needle.length() > haystack.length()) {
             return -1;
         }
         char first = needle.charAt(0);
-        for(int i=0;i<haystack.length();i++){
-            if(first==haystack.charAt(i)){
-                if(needle.equals(haystack.substring(i,i+needle.length()))){
+        for (int i = 0; i < haystack.length(); i++) {
+            if (first == haystack.charAt(i)) {
+                if (i + needle.length() <= haystack.length() && needle.equals(haystack.substring(i, i + needle.length()))) {
                     return i;
                 }
             }
@@ -463,7 +463,7 @@ public class LeetCodeSimple {
         /*for(int i=0;i<50;i++){
             System.out.println("length:"+leetCodeSimple.strStr("hello","abc"));
         }*/
-        System.out.println("position:"+leetCodeSimple.strStr("mississippi","issipi"));
+        System.out.println("position:" + leetCodeSimple.strStr("mississippi", "issipi"));
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - startTime));
         System.exit(0);
