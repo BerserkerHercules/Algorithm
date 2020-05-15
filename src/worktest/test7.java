@@ -17,8 +17,6 @@ public class test7 {
         Animal a1, a2;
         a1 = new Animal("🐰", 5, 1000, 100, 20);
         a2 = new Animal("🐢", 2, 0, 100, 0);
-        a2.setPriority(Thread.MAX_PRIORITY);
-
         a2.start();
         a1.start();
 
