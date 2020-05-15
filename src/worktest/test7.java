@@ -15,8 +15,8 @@ public class test7 {
 
     public static void main(String[] args) {
         Animal a1, a2;
-        a1 = new Animal("🐰", 5, 1000, 100, 20);
-        a2 = new Animal("🐢", 2, 0, 100, 0);
+        a1 = new Animal("兔子", 5, 1000, 100, 20);
+        a2 = new Animal("乌龟", 2, 0, 100, 0);
         a2.start();
         a1.start();
 
