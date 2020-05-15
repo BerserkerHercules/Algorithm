@@ -14,10 +14,8 @@ import static com.sun.xml.internal.fastinfoset.util.ValueArray.MAXIMUM_CAPACITY;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(tableSizeFor(2));
-        System.out.println(getCapacityFactor(2));
-        Date d = new Date();
-        System.out.println(!d.after(d));
+        System.out.println(tableSizeFor(3));
+        System.out.println(getCapacityFactor(3));
     }
 
     private static String print(){
