@@ -24,10 +24,8 @@ public class JosephCircle {
 
     public static void f(int n, int m, int size) {
         List<Integer> list = new ArrayList<>(n);
-        List<Integer> listCopy = new ArrayList<>(n);
         for (int i = 1; i <= n; i++) {
             list.add(i);
-            listCopy.add(i);
         }
         // i表示计数器，index表示下标
         for (int i = 1, index = 0; i <= n; i++) {
@@ -44,13 +42,13 @@ public class JosephCircle {
             }
             index++;
         }
-        listCopy.forEach(e -> {
-            if (list.contains(e)) {
-                System.out.print(" 基" + e);
+        for (int i = 1; i <= n + size; i++) {
+            if (list.contains(i)) {
+                System.out.print(" 基" + i);
             } else {
-                System.out.print(" 非" + e);
+                System.out.print(" 非" + i);
             }
-        });
+        }
     }
 
 }
