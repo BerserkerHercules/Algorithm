@@ -29,6 +29,7 @@ public class JosephCircle {
             list.add(i);
             listCopy.add(i);
         }
+        // i表示计数器，index表示下标
         for (int i = 1, index = 0; i <= n; i++) {
             if (i % m == 0) {
                 if (list.size() <= size) {
