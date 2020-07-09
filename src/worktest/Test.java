@@ -1,6 +1,7 @@
 package worktest;
 
 import java.io.FileReader;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import static com.sun.xml.internal.fastinfoset.util.ValueArray.MAXIMUM_CAPACITY;
@@ -12,10 +13,18 @@ import static com.sun.xml.internal.fastinfoset.util.ValueArray.MAXIMUM_CAPACITY;
  * @create 2020-04-20 1:59 下午
  */
 public class Test {
+    static DecimalFormat df = new DecimalFormat("######0.00");
 
     public static void main(String[] args) {
-        System.out.println(tableSizeFor(3));
-        System.out.println(getCapacityFactor(3));
+        double roadEntCount = 10572;
+        double lastRoadEntCount = 10971;
+        double allEntCount = 72980;
+        double lastEntCount = 78276;
+
+        System.out.println(tableSizeFor(5));
+        System.out.println(getCapacityFactor(5));
+        //System.out.println(df.format(((roadEntCount - lastRoadEntCount) / lastRoadEntCount) * 100));
+        //System.out.println(df.format((((allEntCount - roadEntCount) - (lastEntCount - lastRoadEntCount)) / (lastEntCount - lastRoadEntCount)) * 100));
     }
 
     private static String print(){
