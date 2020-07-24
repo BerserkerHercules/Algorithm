@@ -200,7 +200,7 @@ public class LeetCodeSimple {
     }
 
     /**
-     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     * 14、编写一个函数来查找字符串数组中的最长公共前缀。
      * <p>
      * 如果不存在公共前缀，返回空字符串 ""。
      * <p>
@@ -242,7 +242,7 @@ public class LeetCodeSimple {
     }
 
     /**
-     * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+     * 20、给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
      * <p>
      * 有效字符串需满足：
      * <p>
@@ -308,23 +308,10 @@ public class LeetCodeSimple {
         return i != 0;
     }
 
-    /**
-     * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
-     * <p>
-     * 示例：
-     * <p>
-     * 输入：1->2->4, 1->3->4
-     * 输出：1->1->2->3->4->4
-     * <p>
-     * 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
-     */
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
-        return l1.next.next;
-    }
 
     /**
-     * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+     * 26、给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
      * <p>
      * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
      * <p>
@@ -418,7 +405,7 @@ public class LeetCodeSimple {
     }
 
     /**
-     * 实现 strStr() 函数。
+     * 28、实现 strStr() 函数。
      * <p>
      * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。
      * 如果不存在，则返回  -1。
@@ -456,14 +443,38 @@ public class LeetCodeSimple {
         return -1;
     }
 
+    /**
+     * 35、给定一个排序数组和一个目标值，
+     * 在数组中找到目标值，并返回其索引。
+     * 如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+     */
+    public int searchInsert(int[] nums, int target) {
+        if(nums[nums.length-1]<target){
+            return nums.length;
+        }
+        if(nums[0]>=target){
+            return 0;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < target && nums[i + 1] > target) {
+                return i + 1;
+            }
+            if (nums[i] == target) {
+                return i;
+            }
+        }
+        return nums.length - 1;
+    }
+
     public static void main(String[] args) {
         LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
-
+        int[] nums = new int[4];
+        nums[0] = 1;
+        nums[1] = 3;
+        nums[2] = 5;
+        nums[3] = 6;
         long startTime = System.currentTimeMillis();
-        /*for(int i=0;i<50;i++){
-            System.out.println("length:"+leetCodeSimple.strStr("hello","abc"));
-        }*/
-        System.out.println("position:" + leetCodeSimple.strStr("mississippi", "issipi"));
+        System.out.println(leetCodeSimple.searchInsert(nums, 6));
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - startTime));
         System.exit(0);
