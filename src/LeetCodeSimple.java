@@ -466,18 +466,4 @@ public class LeetCodeSimple {
         return nums.length - 1;
     }
 
-    public static void main(String[] args) {
-        LeetCodeSimple leetCodeSimple = new LeetCodeSimple();
-        int[] nums = new int[4];
-        nums[0] = 1;
-        nums[1] = 3;
-        nums[2] = 5;
-        nums[3] = 6;
-        long startTime = System.currentTimeMillis();
-        System.out.println(leetCodeSimple.searchInsert(nums, 6));
-        long endTime = System.currentTimeMillis();
-        System.out.println("耗时：" + (endTime - startTime));
-        System.exit(0);
-    }
-
 }
